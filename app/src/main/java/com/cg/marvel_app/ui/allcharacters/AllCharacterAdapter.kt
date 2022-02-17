@@ -15,12 +15,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.databinding.ItemCharacterBinding
-import com.cg.marvel_app.utils.Comparator.CHARACTER_COMPARATOR
+import com.cg.marvel_app.utils.Mapper.CHARACTER_MAPPER
 
 class AllCharacterAdapter(private val listener: CharacterClickListener) :
-    PagingDataAdapter<CharacterResult, AllCharacterAdapter.AllCharacterViewHolder>(CHARACTER_COMPARATOR) {
+    PagingDataAdapter<CharacterResult, AllCharacterAdapter.AllCharacterViewHolder>(CHARACTER_MAPPER) {
 
     var favourites: List<CharacterResult> = ArrayList()
 
@@ -89,7 +89,7 @@ class AllCharacterAdapter(private val listener: CharacterClickListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllCharacterViewHolder {
         val binding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val allCharacterViewHolder = AllCharacterViewHolder(binding)
-        Log.i("Fav", favourites.size.toString())
+        Log.i("Fav item size", favourites.size.toString())
         binding.likeButton.setOnClickListener {
             val position = allCharacterViewHolder.absoluteAdapterPosition
             if (position != RecyclerView.NO_POSITION) {

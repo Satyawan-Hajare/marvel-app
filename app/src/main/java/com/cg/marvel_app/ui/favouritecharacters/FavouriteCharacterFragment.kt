@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.databinding.FragmentFavouriteCharactersBinding
 import com.cg.marvel_app.ui.allcharacters.CharacterClickListener
 import dagger.hilt.android.AndroidEntryPoint

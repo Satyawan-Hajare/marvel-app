@@ -3,8 +3,8 @@ package com.cg.marvel_app.ui.favouritecharacters
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.cg.marvel_app.api.MarvelRepository
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.api.repository.MarvelRepository
+import com.cg.marvel_app.data.characters.CharacterResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

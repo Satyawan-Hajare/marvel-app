@@ -1,13 +1,14 @@
-package com.cg.marvel_app.data
 
+package com.cg.marvel_app.data.characters
 import android.os.Parcelable
 import androidx.room.*
+import com.cg.marvel_app.utils.Constants
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "character_table")
+@Entity(tableName = Constants.DbConstant.TABLE_NAME)
 data class CharacterResult(
-    @PrimaryKey()
+    @PrimaryKey
     var id: String = "",
     var name: String = "",
     var description: String = "",

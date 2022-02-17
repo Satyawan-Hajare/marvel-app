@@ -13,12 +13,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.SeriesResult
+import com.cg.marvel_app.data.series.SeriesResult
 import com.cg.marvel_app.databinding.ItemSeriesBinding
-import com.cg.marvel_app.utils.Comparator.CHARACTER_SERIES_COMPARATOR
+import com.cg.marvel_app.utils.Mapper.CHARACTER_SERIES_MAPPER
 
 class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
-    PagingDataAdapter<SeriesResult, SeriesRecyclerViewAdapter.SeriesViewHolder>(CHARACTER_SERIES_COMPARATOR) {
+    PagingDataAdapter<SeriesResult, SeriesRecyclerViewAdapter.SeriesViewHolder>(CHARACTER_SERIES_MAPPER) {
 
     inner class SeriesViewHolder(private val binding: ItemSeriesBinding) :
         RecyclerView.ViewHolder(binding.root) {

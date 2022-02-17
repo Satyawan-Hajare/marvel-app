@@ -2,6 +2,7 @@ package com.cg.marvel_app.ui.characterseries
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -9,7 +10,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.SeriesResult
+import com.cg.marvel_app.data.series.SeriesResult
 import com.cg.marvel_app.databinding.FragmentSeriesBinding
 import com.cg.marvel_app.ui.allcharacters.MarvelLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -74,6 +75,9 @@ class SeriesFragment(private val characterId: String) :
         binding.apply {
             blackScreen.visibility = View.VISIBLE
             seriesDetailConstraint.visibility = View.VISIBLE
+            val animZoomOut = AnimationUtils.loadAnimation(seriesImage.context,
+                R.anim.zoom_in)
+            seriesImage.startAnimation(animZoomOut)
             Glide.with(requireContext()).load(series.thumbnail.path + "." + series.thumbnail.extension).into(seriesImage)
             seriesDescription.text = series.description
             seriesTitle.text = series.title

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_black">
+    android:background="@color/white">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/comicRecyclerView"
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
-        android:background="@color/light_black"
+        android:background="@color/white"
         android:visibility="gone" />
 
     <androidx.core.widget.NestedScrollView
@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:fontFamily="@font/audiowide"
+                android:fontFamily="sans-serif-black"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:fontFamily="@font/audiowide"
+                android:fontFamily="sans-serif-black"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

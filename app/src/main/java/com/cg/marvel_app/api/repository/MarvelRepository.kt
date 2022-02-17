@@ -1,8 +1,9 @@
-package com.cg.marvel_app.api
+package com.cg.marvel_app.api.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.api.MarvelApi
+import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.db.CharacterDao
 import com.cg.marvel_app.ui.allcharacters.CharacterPagingSource
 import com.cg.marvel_app.ui.charactercomics.ComicPagingSource

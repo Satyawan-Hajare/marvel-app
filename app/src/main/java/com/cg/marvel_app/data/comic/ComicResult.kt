@@ -1,4 +1,4 @@
-package com.cg.marvel_app.data
+package com.cg.marvel_app.data.comic
 
 data class ComicResult(
     val id: String,

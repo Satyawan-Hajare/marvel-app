@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_character_detail" >
         <argument
             android:name="character"
-            app:argType="com.cg.marvel_app.data.CharacterResult" />
+            app:argType="com.cg.marvel_app.data.characters.CharacterResult" />
     </fragment>
     <fragment
         android:id="@+id/favouriteCharacterFragment"

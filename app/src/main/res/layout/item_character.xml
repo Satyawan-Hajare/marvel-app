@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@color/dark_gray"
+        android:background="@color/bright_pink"
         android:padding="10dp">
 
         <androidx.cardview.widget.CardView
@@ -50,10 +50,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:ellipsize="end"
-            android:fontFamily="@font/audiowide"
             android:maxLines="1"
+            android:fontFamily="sans-serif-black"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/like_button"
             app:layout_constraintStart_toEndOf="@+id/character_image_constraint"
@@ -66,22 +66,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
-            android:fontFamily="@font/audiowide"
             android:maxLines="3"
+            android:fontFamily="sans-serif-black"
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/character_name"
             app:layout_constraintTop_toBottomOf="@+id/character_name"
-            tools:text="Attuma was born into te tribe of Homo mermanus who escewed civilization to live as nomadic barbarians. For some unrecorded reason, Attuma was endowed with strength far surpassing that of his people." />
+            tools:text="Spider-Man is a superhero appearing in American comic books published by Marvel Comics." />
 
         <TextView
             android:id="@+id/character_comics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/audiowide"
-            android:textColor="@color/gray"
+            android:textColor="@color/dark_gray"
             android:textSize="16sp"
+            android:fontFamily="sans-serif-black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/character_description"
             tools:text="Comics 50" />
@@ -91,9 +91,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/audiowide"
-            android:textColor="@color/gray"
+            android:textColor="@color/dark_gray"
             android:textSize="16sp"
+            android:fontFamily="sans-serif-black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/character_comics"
             tools:text="Series 50" />

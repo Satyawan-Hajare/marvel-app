@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#e23636</color>
-
+    <color name="bright_pink">#ff007f</color>
+    <color name="orange">#fe7600</color>
+    <color name="deep_pink">#FF1493</color>
     <color name="light_black">#191A1C</color>
     <color name="gray">#A0A0A0</color>
     <color name="dark_gray">#303136</color>

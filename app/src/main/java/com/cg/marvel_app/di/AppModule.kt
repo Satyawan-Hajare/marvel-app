@@ -34,9 +34,9 @@ object AppModule {
             val originalHttpUrl = original.url()
 
             val url = originalHttpUrl.newBuilder()
-                .addQueryParameter("apikey", Constants.PUBLIC_KEY)
-                .addQueryParameter("ts", Constants.timeStamp)
-                .addQueryParameter("hash", Constants.hash())
+                .addQueryParameter(Constants.AppModuleKey.API_KEY, Constants.PUBLIC_KEY)
+                .addQueryParameter(Constants.AppModuleKey.TIMESTAMP, Constants.timeStamp)
+                .addQueryParameter(Constants.AppModuleKey.HASH_KEY, Constants.hash())
                 .build()
 
             chain.proceed(original.newBuilder().url(url).build())
@@ -60,7 +60,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMarvelDatabase(@ApplicationContext context: Context): MarvelDatabase =
-        Room.databaseBuilder(context, MarvelDatabase::class.java, "marvel_database")
+        Room.databaseBuilder(context, MarvelDatabase::class.java, Constants.DbConstant.DB_NAME)
             .fallbackToDestructiveMigration()
             .build()
 

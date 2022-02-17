@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/dark_gray"
+        android:background="@color/bright_pink"
         android:padding="10dp">
 
         <androidx.cardview.widget.CardView
@@ -45,8 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:ellipsize="end"
-            android:fontFamily="@font/audiowide"
             android:maxLines="1"
+            android:fontFamily="sans-serif-black"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -61,14 +61,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
-            android:fontFamily="@font/audiowide"
             android:maxLines="5"
             android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/series_name"
             app:layout_constraintTop_toBottomOf="@+id/series_name"
-            tools:text="Attuma was born into te tribe of Homo mermanus who escewed civilization to live as nomadic barbarians. For some unrecorded reason, Attuma was endowed with strength far surpassing that of his people." />
+            tools:text="Spider-Man is a superhero appearing in American comic books published by Marvel Comics." />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

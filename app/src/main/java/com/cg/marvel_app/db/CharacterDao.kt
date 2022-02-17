@@ -1,7 +1,7 @@
 package com.cg.marvel_app.db
 
 import androidx.room.*
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.data.characters.CharacterResult
 import kotlinx.coroutines.flow.Flow
 
 @Dao

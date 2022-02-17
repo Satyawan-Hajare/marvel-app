@@ -13,12 +13,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.ComicResult
+import com.cg.marvel_app.data.comic.ComicResult
 import com.cg.marvel_app.databinding.ItemComicBinding
-import com.cg.marvel_app.utils.Comparator.CHARACTER_COMICS_COMPARATOR
+import com.cg.marvel_app.utils.Mapper.CHARACTER_COMICS_MAPPER
 
 class ComicRecyclerViewAdapter(private val listener: ComicClickListener) :
-    PagingDataAdapter<ComicResult, ComicRecyclerViewAdapter.ComicViewHolder>(CHARACTER_COMICS_COMPARATOR) {
+    PagingDataAdapter<ComicResult, ComicRecyclerViewAdapter.ComicViewHolder>(CHARACTER_COMICS_MAPPER) {
 
     inner class ComicViewHolder(private val binding: ItemComicBinding) :
         RecyclerView.ViewHolder(binding.root) {

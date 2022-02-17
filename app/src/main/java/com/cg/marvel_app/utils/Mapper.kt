@@ -1,13 +1,13 @@
 package com.cg.marvel_app.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.cg.marvel_app.data.CharacterResult
-import com.cg.marvel_app.data.ComicResult
-import com.cg.marvel_app.data.SeriesResult
+import com.cg.marvel_app.data.characters.CharacterResult
+import com.cg.marvel_app.data.comic.ComicResult
+import com.cg.marvel_app.data.series.SeriesResult
 
-object Comparator {
+object Mapper {
 
-    val CHARACTER_COMPARATOR = object : DiffUtil.ItemCallback<CharacterResult>() {
+    val CHARACTER_MAPPER = object : DiffUtil.ItemCallback<CharacterResult>() {
         override fun areItemsTheSame(oldItem: CharacterResult, newItem: CharacterResult): Boolean {
             return oldItem.id == newItem.id
         }
@@ -17,7 +17,7 @@ object Comparator {
         }
     }
 
-    val CHARACTER_COMICS_COMPARATOR = object : DiffUtil.ItemCallback<ComicResult>() {
+    val CHARACTER_COMICS_MAPPER = object : DiffUtil.ItemCallback<ComicResult>() {
         override fun areItemsTheSame(oldItem: ComicResult, newItem: ComicResult): Boolean {
             return oldItem.id == newItem.id
         }
@@ -27,7 +27,7 @@ object Comparator {
         }
     }
 
-    val CHARACTER_SERIES_COMPARATOR = object : DiffUtil.ItemCallback<SeriesResult>() {
+    val CHARACTER_SERIES_MAPPER = object : DiffUtil.ItemCallback<SeriesResult>() {
         override fun areItemsTheSame(oldItem: SeriesResult, newItem: SeriesResult): Boolean {
             return oldItem.id == newItem.id
         }

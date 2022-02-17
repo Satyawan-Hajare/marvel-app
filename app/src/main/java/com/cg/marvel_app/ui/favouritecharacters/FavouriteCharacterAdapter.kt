@@ -14,13 +14,13 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.databinding.ItemCharacterBinding
 import com.cg.marvel_app.ui.allcharacters.CharacterClickListener
-import com.cg.marvel_app.utils.Comparator.CHARACTER_COMPARATOR
+import com.cg.marvel_app.utils.Mapper.CHARACTER_MAPPER
 
 class FavouriteCharacterAdapter(private val listener: CharacterClickListener):
-    ListAdapter<CharacterResult, FavouriteCharacterAdapter.FavouriteCharacterViewHolder>(CHARACTER_COMPARATOR) {
+    ListAdapter<CharacterResult, FavouriteCharacterAdapter.FavouriteCharacterViewHolder>(CHARACTER_MAPPER) {
 
     inner class FavouriteCharacterViewHolder(private val binding: ItemCharacterBinding)
         : RecyclerView.ViewHolder(binding.root) {

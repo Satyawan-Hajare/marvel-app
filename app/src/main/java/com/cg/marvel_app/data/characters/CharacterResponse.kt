@@ -1,5 +1,5 @@
-package com.cg.marvel_app.data
 
+package com.cg.marvel_app.data.characters
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

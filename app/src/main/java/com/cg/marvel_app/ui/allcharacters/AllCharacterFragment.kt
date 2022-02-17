@@ -13,9 +13,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cg.marvel_app.R
-import com.cg.marvel_app.data.CharacterResult
+import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.databinding.FragmentAllCharactersBinding
-//import com.example.marvelapp.ui.allcharacters.AllCharacterFragmentDirections
+
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

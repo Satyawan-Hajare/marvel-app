@@ -1,8 +1,8 @@
 package com.cg.marvel_app.api
 
-import com.cg.marvel_app.data.CharacterResponse
-import com.cg.marvel_app.data.ComicResponse
-import com.cg.marvel_app.data.SeriesResponse
+import com.cg.marvel_app.data.characters.CharacterResponse
+import com.cg.marvel_app.data.comic.ComicResponse
+import com.cg.marvel_app.data.series.SeriesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -3,7 +3,7 @@ package com.cg.marvel_app.ui.characterseries
 import android.util.Log
 import androidx.paging.PagingSource
 import com.cg.marvel_app.api.MarvelApi
-import com.cg.marvel_app.data.SeriesResult
+import com.cg.marvel_app.data.series.SeriesResult
 import retrofit2.HttpException
 
 private const val STARTING_OFFSET = 0
