@@ -13,7 +13,8 @@ import com.cg.marvel_app.ui.allcharacters.CharacterClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavouriteCharacterFragment: Fragment(R.layout.fragment_favourite_characters), CharacterClickListener {
+class FavouriteCharacterFragment : Fragment(R.layout.fragment_favourite_characters),
+    CharacterClickListener {
 
     private var _binding: FragmentFavouriteCharactersBinding? = null
     private val binding get() = _binding!!
@@ -37,7 +38,10 @@ class FavouriteCharacterFragment: Fragment(R.layout.fragment_favourite_character
     }
 
     override fun onClick(character: CharacterResult) {
-        val action = FavouriteCharacterFragmentDirections.actionFavouriteCharacterFragmentToCharacterDetailFragment(character)
+        val action =
+            FavouriteCharacterFragmentDirections.actionFavouriteCharacterFragmentToCharacterDetailFragment(
+                character
+            )
         findNavController().navigate(action)
     }
 

@@ -12,7 +12,10 @@ object Mapper {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: CharacterResult, newItem: CharacterResult): Boolean {
+        override fun areContentsTheSame(
+            oldItem: CharacterResult,
+            newItem: CharacterResult
+        ): Boolean {
             return oldItem.name == newItem.name
         }
     }

@@ -29,8 +29,7 @@ class ComicRecyclerViewAdapter(private val listener: ComicClickListener) :
                     comicImage.rotationY = 180f
                     comicName.rotationY = 180f
                     comicDescription.rotationY = 180f
-                }
-                else {
+                } else {
                     comicCardView.rotationY = 0f
                     comicImage.rotationY = 0f
                     comicName.rotationY = 0f
@@ -70,7 +69,8 @@ class ComicRecyclerViewAdapter(private val listener: ComicClickListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
         val binding = ItemComicBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val comicViewHolder = ComicViewHolder(binding)
-        binding.comicCardView.animation=   AnimationUtils.loadAnimation(binding.comicCardView.context, R.anim.translate)
+        binding.comicCardView.animation =
+            AnimationUtils.loadAnimation(binding.comicCardView.context, R.anim.translate)
         binding.comicCardView.setOnClickListener {
             listener.showComicDetail(getItem(comicViewHolder.absoluteAdapterPosition)!!)
         }

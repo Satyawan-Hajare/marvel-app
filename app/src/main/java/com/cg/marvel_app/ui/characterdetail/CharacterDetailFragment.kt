@@ -13,9 +13,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterDetailFragment: Fragment(R.layout.fragment_character_detail) {
+class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
-    private var _binding: FragmentCharacterDetailBinding ?= null
+    private var _binding: FragmentCharacterDetailBinding? = null
     private val binding get() = _binding!!
     private val navArgs by navArgs<CharacterDetailFragmentArgs>()
 

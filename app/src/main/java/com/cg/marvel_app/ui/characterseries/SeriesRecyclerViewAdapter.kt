@@ -18,7 +18,9 @@ import com.cg.marvel_app.databinding.ItemSeriesBinding
 import com.cg.marvel_app.utils.Mapper.CHARACTER_SERIES_MAPPER
 
 class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
-    PagingDataAdapter<SeriesResult, SeriesRecyclerViewAdapter.SeriesViewHolder>(CHARACTER_SERIES_MAPPER) {
+    PagingDataAdapter<SeriesResult, SeriesRecyclerViewAdapter.SeriesViewHolder>(
+        CHARACTER_SERIES_MAPPER
+    ) {
 
     inner class SeriesViewHolder(private val binding: ItemSeriesBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -29,8 +31,7 @@ class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
                     seriesImage.rotationY = 180f
                     seriesName.rotationY = 180f
                     seriesDescription.rotationY = 180f
-                }
-                else {
+                } else {
                     seriesCardView.rotationY = 0f
                     seriesImage.rotationY = 0f
                     seriesName.rotationY = 0f
@@ -70,7 +71,8 @@ class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeriesViewHolder {
         val binding = ItemSeriesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val seriesViewHolder = SeriesViewHolder(binding)
-        binding.seriesCardView.animation=   AnimationUtils.loadAnimation(binding.seriesCardView.context, R.anim.translate)
+        binding.seriesCardView.animation =
+            AnimationUtils.loadAnimation(binding.seriesCardView.context, R.anim.translate)
         binding.seriesCardView.setOnClickListener {
             listener.showSeriesDetail(getItem(seriesViewHolder.absoluteAdapterPosition)!!)
         }

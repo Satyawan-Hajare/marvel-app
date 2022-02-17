@@ -27,7 +27,8 @@ class AllCharacterAdapter(private val listener: CharacterClickListener) :
     inner class AllCharacterViewHolder(private val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.characterCardView.animation=   AnimationUtils.loadAnimation(binding.characterCardView.context, R.anim.scale)
+            binding.characterCardView.animation =
+                AnimationUtils.loadAnimation(binding.characterCardView.context, R.anim.scale)
             binding.characterCardView.setOnClickListener {
                 val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
@@ -87,7 +88,8 @@ class AllCharacterAdapter(private val listener: CharacterClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllCharacterViewHolder {
-        val binding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val allCharacterViewHolder = AllCharacterViewHolder(binding)
         Log.i("Fav item size", favourites.size.toString())
         binding.likeButton.setOnClickListener {

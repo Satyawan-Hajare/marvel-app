@@ -13,17 +13,18 @@ class MarvelLoadStateAdapter(private val retry: () -> Unit) :
 
     class LoadStateViewHolder(private val binding: LoadStateFooterBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(loadState: LoadState) {
-                binding.apply {
-                    footerProgressBar.isVisible = loadState is LoadState.Loading
-                    retryButton.isVisible = loadState !is LoadState.Loading
-                    errorTextView.isVisible = loadState !is LoadState.Loading
-                }
+        fun bind(loadState: LoadState) {
+            binding.apply {
+                footerProgressBar.isVisible = loadState is LoadState.Loading
+                retryButton.isVisible = loadState !is LoadState.Loading
+                errorTextView.isVisible = loadState !is LoadState.Loading
             }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadStateViewHolder {
-        val binding = LoadStateFooterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            LoadStateFooterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         binding.retryButton.setOnClickListener {
             retry.invoke()
         }

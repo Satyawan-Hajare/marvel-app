@@ -46,11 +46,11 @@ class AllCharacterFragment : Fragment(R.layout.fragment_all_characters), Charact
                 allCharacterNoConnection.isVisible = loadState.source.refresh is LoadState.Error
 
                 if (loadState.source.refresh is LoadState.NotLoading &&
-                    loadState.append.endOfPaginationReached && allCharacterAdapter.itemCount < 1) {
+                    loadState.append.endOfPaginationReached && allCharacterAdapter.itemCount < 1
+                ) {
                     recyclerview.isVisible = false
                     noResultFoundTextView.isVisible = true
-                }
-                else {
+                } else {
                     noResultFoundTextView.isVisible = false
                 }
             }
@@ -81,7 +81,8 @@ class AllCharacterFragment : Fragment(R.layout.fragment_all_characters), Charact
     }
 
     override fun onClick(character: CharacterResult) {
-        val action = AllCharacterFragmentDirections.actionAllHeroFragmentToCharacterDetailFragment(character)
+        val action =
+            AllCharacterFragmentDirections.actionAllHeroFragmentToCharacterDetailFragment(character)
         findNavController().navigate(action)
     }
 

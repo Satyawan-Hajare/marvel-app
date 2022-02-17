@@ -19,11 +19,13 @@ import com.cg.marvel_app.databinding.ItemCharacterBinding
 import com.cg.marvel_app.ui.allcharacters.CharacterClickListener
 import com.cg.marvel_app.utils.Mapper.CHARACTER_MAPPER
 
-class FavouriteCharacterAdapter(private val listener: CharacterClickListener):
-    ListAdapter<CharacterResult, FavouriteCharacterAdapter.FavouriteCharacterViewHolder>(CHARACTER_MAPPER) {
+class FavouriteCharacterAdapter(private val listener: CharacterClickListener) :
+    ListAdapter<CharacterResult, FavouriteCharacterAdapter.FavouriteCharacterViewHolder>(
+        CHARACTER_MAPPER
+    ) {
 
-    inner class FavouriteCharacterViewHolder(private val binding: ItemCharacterBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+    inner class FavouriteCharacterViewHolder(private val binding: ItemCharacterBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bindCharacter(character: CharacterResult) {
             binding.apply {
@@ -66,10 +68,15 @@ class FavouriteCharacterAdapter(private val listener: CharacterClickListener):
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteCharacterViewHolder {
-        val binding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): FavouriteCharacterViewHolder {
+        val binding =
+            ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val favouriteCharacterViewHolder = FavouriteCharacterViewHolder(binding)
-        binding.characterCardView.animation=   AnimationUtils.loadAnimation(binding.characterCardView.context, R.anim.translate)
+        binding.characterCardView.animation =
+            AnimationUtils.loadAnimation(binding.characterCardView.context, R.anim.translate)
         binding.characterCardView.setOnClickListener {
             listener.onClick(getItem(favouriteCharacterViewHolder.absoluteAdapterPosition))
         }

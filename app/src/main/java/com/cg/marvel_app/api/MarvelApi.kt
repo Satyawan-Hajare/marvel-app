@@ -33,6 +33,6 @@ interface MarvelApi {
         @Path("characterId") characterId: String,
         @Query("offset") offset: Int? = 0,
         @Query("limit") limit: Int? = 20
-    ) : SeriesResponse
+    ): SeriesResponse
 
 }

@@ -28,7 +28,7 @@ class SeriesPagingSource(private val marvelApi: MarvelApi, private val character
                 prevKey = if (position == STARTING_OFFSET) null else position - LOAD_SIZE,
                 nextKey = if (series.isEmpty()) null else position + LOAD_SIZE
             )
-        }catch (exception: Exception) {
+        } catch (exception: Exception) {
             Log.i("CHARACTER EXCEPTION", exception.toString())
             LoadResult.Error(exception)
         } catch (exception: HttpException) {

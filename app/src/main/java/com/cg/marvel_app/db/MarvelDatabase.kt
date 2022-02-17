@@ -6,7 +6,7 @@ import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.utils.Constants
 
 @Database(entities = [CharacterResult::class], version = Constants.DbConstant.DB_VERSION)
-abstract class MarvelDatabase: RoomDatabase() {
+abstract class MarvelDatabase : RoomDatabase() {
 
     abstract fun getCharacterDao(): CharacterDao
 

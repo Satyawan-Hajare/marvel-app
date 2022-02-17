@@ -16,10 +16,10 @@ import com.cg.marvel_app.ui.allcharacters.MarvelLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ComicFragment(private val characterId: String):
+class ComicFragment(private val characterId: String) :
     Fragment(R.layout.fragment_comic), ComicClickListener {
 
-    private var _binding: FragmentComicBinding ?= null
+    private var _binding: FragmentComicBinding? = null
     private val binding get() = _binding!!
     private val comicViewModel by viewModels<ComicViewModel>()
 
@@ -36,11 +36,11 @@ class ComicFragment(private val characterId: String):
                 comicRetryButton.isVisible = loadState.source.refresh is LoadState.Error
                 comicNoConnection.isVisible = loadState.source.refresh is LoadState.Error
                 if (loadState.source.refresh is LoadState.NotLoading &&
-                    loadState.append.endOfPaginationReached && comicAdapter.itemCount < 1) {
+                    loadState.append.endOfPaginationReached && comicAdapter.itemCount < 1
+                ) {
                     comicRecyclerView.isVisible = false
                     noResultFoundTextView.isVisible = true
-                }
-                else {
+                } else {
                     noResultFoundTextView.isVisible = false
                 }
             }
@@ -75,10 +75,13 @@ class ComicFragment(private val characterId: String):
         binding.apply {
             blackScreen.visibility = View.VISIBLE
             comicDetailConstraint.visibility = View.VISIBLE
-            val animZoomOut = AnimationUtils.loadAnimation(comicImage.context,
-                R.anim.zoom_in)
+            val animZoomOut = AnimationUtils.loadAnimation(
+                comicImage.context,
+                R.anim.zoom_in
+            )
             comicImage.startAnimation(animZoomOut)
-            Glide.with(requireContext()).load(comic.thumbnail.path + "." + comic.thumbnail.extension).into(comicImage)
+            Glide.with(requireContext())
+                .load(comic.thumbnail.path + "." + comic.thumbnail.extension).into(comicImage)
             comicDescription.text = comic.description
             comicTitle.text = comic.title
         }

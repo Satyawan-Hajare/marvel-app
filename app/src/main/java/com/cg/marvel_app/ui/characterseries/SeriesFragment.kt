@@ -75,10 +75,13 @@ class SeriesFragment(private val characterId: String) :
         binding.apply {
             blackScreen.visibility = View.VISIBLE
             seriesDetailConstraint.visibility = View.VISIBLE
-            val animZoomOut = AnimationUtils.loadAnimation(seriesImage.context,
-                R.anim.zoom_in)
+            val animZoomOut = AnimationUtils.loadAnimation(
+                seriesImage.context,
+                R.anim.zoom_in
+            )
             seriesImage.startAnimation(animZoomOut)
-            Glide.with(requireContext()).load(series.thumbnail.path + "." + series.thumbnail.extension).into(seriesImage)
+            Glide.with(requireContext())
+                .load(series.thumbnail.path + "." + series.thumbnail.extension).into(seriesImage)
             seriesDescription.text = series.description
             seriesTitle.text = series.title
         }

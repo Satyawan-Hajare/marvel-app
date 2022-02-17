@@ -18,12 +18,17 @@ class CharacterPagingSource(
         val position = (params.key ?: STARTING_OFFSET)
         return try {
 
-            val characters  = if (query != "") {
-                val response = marvelApi.searchCharacter(query = query, offset = position, limit = params.loadSize)
+            val characters = if (query != "") {
+                val response = marvelApi.searchCharacter(
+                    query = query,
+                    offset = position,
+                    limit = params.loadSize
+                )
                 val data = response.data
                 data.results
             } else {
-                val response = marvelApi.getAllCharacters(offset = position, limit = params.loadSize)
+                val response =
+                    marvelApi.getAllCharacters(offset = position, limit = params.loadSize)
                 val data = response.data
                 data.results
             }
@@ -33,7 +38,7 @@ class CharacterPagingSource(
                 prevKey = if (position == STARTING_OFFSET) null else position - LOAD_SIZE,
                 nextKey = if (characters.isEmpty()) null else position + LOAD_SIZE
             )
-        }catch (exception: Exception) {
+        } catch (exception: Exception) {
             Log.i("CHARACTER EXCEPTION", exception.toString())
             LoadResult.Error(exception)
         } catch (exception: HttpException) {

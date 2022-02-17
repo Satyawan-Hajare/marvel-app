@@ -1,5 +1,5 @@
-
 package com.cg.marvel_app.data.characters
+
 import android.os.Parcelable
 import androidx.room.*
 import com.cg.marvel_app.utils.Constants
@@ -23,15 +23,15 @@ data class CharacterResult(
 ) : Parcelable {
 
     @Parcelize
-    data class Thumbnail(val path: String, val extension: String): Parcelable
+    data class Thumbnail(val path: String, val extension: String) : Parcelable
 
     @Parcelize
-    data class Url(val type: String, val url: String): Parcelable
+    data class Url(val type: String, val url: String) : Parcelable
 
     @Parcelize
-    data class Comics(@ColumnInfo(name = "comic_available") val available: String): Parcelable
+    data class Comics(@ColumnInfo(name = "comic_available") val available: String) : Parcelable
 
     @Parcelize
-    data class Series(@ColumnInfo(name = "series_available") val available: String): Parcelable
+    data class Series(@ColumnInfo(name = "series_available") val available: String) : Parcelable
 
 }
