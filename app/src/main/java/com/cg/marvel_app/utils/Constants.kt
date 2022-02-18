@@ -29,4 +29,10 @@ class Constants {
         const val TABLE_NAME = "character_table"
         const val DB_VERSION = 1
     }
+
+    object CharacterConstant {
+        const val NO_DESCRIPTION_AVAILABLE = "No Description Available"
+        const val COMICS = "Comics:"
+        const val SERIES = "Series:"
+    }
 }

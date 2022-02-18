@@ -17,6 +17,7 @@ import com.bumptech.glide.request.target.Target
 import com.cg.marvel_app.R
 import com.cg.marvel_app.data.characters.CharacterResult
 import com.cg.marvel_app.databinding.ItemCharacterBinding
+import com.cg.marvel_app.utils.Constants
 import com.cg.marvel_app.utils.Mapper.CHARACTER_MAPPER
 
 class AllCharacterAdapter(private val listener: CharacterClickListener) :
@@ -71,12 +72,14 @@ class AllCharacterAdapter(private val listener: CharacterClickListener) :
                 characterName.text = character.name
                 val description = character.description
                 if (description == "") {
-                    characterDescription.text = "No Description"
+                    characterDescription.text = Constants.CharacterConstant.NO_DESCRIPTION_AVAILABLE
                 } else {
                     characterDescription.text = character.description
                 }
-                characterComics.text = "Comics: ${character.comics.available}"
-                characterSeries.text = "Series: ${character.series.available}"
+                characterComics.text =
+                    "${Constants.CharacterConstant.COMICS} ${character.comics.available}"
+                characterSeries.text =
+                    "${Constants.CharacterConstant.SERIES} ${character.series.available}"
                 val favCharacter = favourites.find { it.id == character.id }
                 if (favCharacter != null) {
                     likeButton.setImageResource(R.drawable.ic_liked)

@@ -8,6 +8,8 @@
 
     <ProgressBar
         android:id="@+id/footerProgressBar"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/bright_pink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -16,12 +18,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/results_not_loaded"
-        android:textColor="@color/black"
+        android:textColor="@color/bright_pink"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/retryButton"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/bright_pink"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

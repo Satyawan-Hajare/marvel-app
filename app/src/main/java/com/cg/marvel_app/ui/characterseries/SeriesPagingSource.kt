@@ -29,7 +29,7 @@ class SeriesPagingSource(private val marvelApi: MarvelApi, private val character
                 nextKey = if (series.isEmpty()) null else position + LOAD_SIZE
             )
         } catch (exception: Exception) {
-            Log.i("CHARACTER EXCEPTION", exception.toString())
+            Log.i("EXCEPTION", exception.toString())
             LoadResult.Error(exception)
         } catch (exception: HttpException) {
             LoadResult.Error(exception)
