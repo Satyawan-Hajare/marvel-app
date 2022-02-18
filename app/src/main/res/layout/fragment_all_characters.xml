@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_result_found"
-        android:textColor="@color/gray"
+        android:textColor="@color/bright_pink"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="gone"
