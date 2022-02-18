@@ -32,7 +32,7 @@ class ComicPagingSource(
                 nextKey = if (comics.isEmpty()) null else position + LOAD_SIZE
             )
         } catch (exception: Exception) {
-            Log.i("CHARACTER EXCEPTION", exception.toString())
+            Log.i("exception", exception.toString())
             LoadResult.Error(exception)
         } catch (exception: HttpException) {
             LoadResult.Error(exception)

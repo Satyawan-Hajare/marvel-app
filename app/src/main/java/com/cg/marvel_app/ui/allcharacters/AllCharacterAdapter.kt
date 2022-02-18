@@ -101,6 +101,7 @@ class AllCharacterAdapter(private val listener: CharacterClickListener) :
                 val character = getItem(position)
                 if (character != null) {
                     val favCharacter = favourites.find { it.id == character.id }
+                    // Remove and add item from favourite
                     if (favCharacter != null) {
                         listener.removeFromFavourite(character)
                     } else {
