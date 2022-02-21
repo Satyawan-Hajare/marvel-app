@@ -111,6 +111,7 @@
             android:id="@+id/character_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:indeterminateTint="@color/red"
             app:layout_constraintBottom_toBottomOf="@+id/character_image_constraint"
             app:layout_constraintEnd_toEndOf="@+id/character_image_constraint"
             app:layout_constraintStart_toStartOf="@id/character_image_constraint"

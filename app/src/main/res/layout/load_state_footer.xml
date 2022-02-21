@@ -9,7 +9,7 @@
     <ProgressBar
         android:id="@+id/footerProgressBar"
         android:indeterminate="true"
-        android:indeterminateTint="@color/bright_pink"
+        android:indeterminateTint="@color/red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

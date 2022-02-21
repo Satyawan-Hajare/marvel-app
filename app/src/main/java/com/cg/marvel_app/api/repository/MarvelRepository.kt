@@ -17,7 +17,7 @@ class MarvelRepository @Inject constructor(
     private val characterDao: CharacterDao
 ) {
 
-    fun searchCharacter(query: String) = Pager(
+        fun searchCharacter(query: String) = Pager(
         config = PagingConfig(pageSize = 20, maxSize = 100, enablePlaceholders = false),
         pagingSourceFactory = { CharacterPagingSource(marvelApi, query) }
     ).flow
