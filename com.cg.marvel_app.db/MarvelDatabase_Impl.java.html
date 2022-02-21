@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarvelDatabase_Impl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MarvelApp$com_cg_marvel_app_in_MarvelApp_app.exec</a> &gt; <a href="index.source.html" class="el_package">com.cg.marvel_app.db</a> &gt; <span class="el_source">MarvelDatabase_Impl.java</span></div><h1>MarvelDatabase_Impl.java</h1><pre class="source lang-java linenums">package com.cg.marvel_app.db;
+
+import androidx.room.DatabaseConfiguration;
+import androidx.room.InvalidationTracker;
+import androidx.room.RoomOpenHelper;
+import androidx.room.RoomOpenHelper.Delegate;
+import androidx.room.RoomOpenHelper.ValidationResult;
+import androidx.room.util.DBUtil;
+import androidx.room.util.TableInfo;
+import androidx.room.util.TableInfo.Column;
+import androidx.room.util.TableInfo.ForeignKey;
+import androidx.room.util.TableInfo.Index;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
+import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
+import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
+import java.lang.Class;
+import java.lang.Override;
+import java.lang.String;
+import java.lang.SuppressWarnings;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+@SuppressWarnings({&quot;unchecked&quot;, &quot;deprecation&quot;})
+<span class="fc" id="L28">public final class MarvelDatabase_Impl extends MarvelDatabase {</span>
+  private volatile CharacterDao _characterDao;
+
+  @Override
+  protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
+<span class="fc" id="L33">    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {</span>
+      @Override
+      public void createAllTables(SupportSQLiteDatabase _db) {
+<span class="nc" id="L36">        _db.execSQL(&quot;CREATE TABLE IF NOT EXISTS `character_table` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `path` TEXT NOT NULL, `extension` TEXT NOT NULL, `comic_available` TEXT NOT NULL, `series_available` TEXT NOT NULL, PRIMARY KEY(`id`))&quot;);</span>
+<span class="nc" id="L37">        _db.execSQL(&quot;CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)&quot;);</span>
+<span class="nc" id="L38">        _db.execSQL(&quot;INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'af684beec6868102a7106e2b58abcc78')&quot;);</span>
+<span class="nc" id="L39">      }</span>
+
+      @Override
+      public void dropAllTables(SupportSQLiteDatabase _db) {
+<span class="nc" id="L43">        _db.execSQL(&quot;DROP TABLE IF EXISTS `character_table`&quot;);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (mCallbacks != null) {</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">          for (int _i = 0, _size = mCallbacks.size(); _i &lt; _size; _i++) {</span>
+<span class="nc" id="L46">            mCallbacks.get(_i).onDestructiveMigration(_db);</span>
+          }
+        }
+<span class="nc" id="L49">      }</span>
+
+      @Override
+      protected void onCreate(SupportSQLiteDatabase _db) {
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (mCallbacks != null) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">          for (int _i = 0, _size = mCallbacks.size(); _i &lt; _size; _i++) {</span>
+<span class="nc" id="L55">            mCallbacks.get(_i).onCreate(_db);</span>
+          }
+        }
+<span class="nc" id="L58">      }</span>
+
+      @Override
+      public void onOpen(SupportSQLiteDatabase _db) {
+<span class="nc" id="L62">        mDatabase = _db;</span>
+<span class="nc" id="L63">        internalInitInvalidationTracker(_db);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (mCallbacks != null) {</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">          for (int _i = 0, _size = mCallbacks.size(); _i &lt; _size; _i++) {</span>
+<span class="nc" id="L66">            mCallbacks.get(_i).onOpen(_db);</span>
+          }
+        }
+<span class="nc" id="L69">      }</span>
+
+      @Override
+      public void onPreMigrate(SupportSQLiteDatabase _db) {
+<span class="nc" id="L73">        DBUtil.dropFtsSyncTriggers(_db);</span>
+<span class="nc" id="L74">      }</span>
+
+      @Override
+      public void onPostMigrate(SupportSQLiteDatabase _db) {
+<span class="nc" id="L78">      }</span>
+
+      @Override
+      protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
+<span class="nc" id="L82">        final HashMap&lt;String, TableInfo.Column&gt; _columnsCharacterTable = new HashMap&lt;String, TableInfo.Column&gt;(7);</span>
+<span class="nc" id="L83">        _columnsCharacterTable.put(&quot;id&quot;, new TableInfo.Column(&quot;id&quot;, &quot;TEXT&quot;, true, 1, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L84">        _columnsCharacterTable.put(&quot;name&quot;, new TableInfo.Column(&quot;name&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L85">        _columnsCharacterTable.put(&quot;description&quot;, new TableInfo.Column(&quot;description&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L86">        _columnsCharacterTable.put(&quot;path&quot;, new TableInfo.Column(&quot;path&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L87">        _columnsCharacterTable.put(&quot;extension&quot;, new TableInfo.Column(&quot;extension&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L88">        _columnsCharacterTable.put(&quot;comic_available&quot;, new TableInfo.Column(&quot;comic_available&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L89">        _columnsCharacterTable.put(&quot;series_available&quot;, new TableInfo.Column(&quot;series_available&quot;, &quot;TEXT&quot;, true, 0, null, TableInfo.CREATED_FROM_ENTITY));</span>
+<span class="nc" id="L90">        final HashSet&lt;TableInfo.ForeignKey&gt; _foreignKeysCharacterTable = new HashSet&lt;TableInfo.ForeignKey&gt;(0);</span>
+<span class="nc" id="L91">        final HashSet&lt;TableInfo.Index&gt; _indicesCharacterTable = new HashSet&lt;TableInfo.Index&gt;(0);</span>
+<span class="nc" id="L92">        final TableInfo _infoCharacterTable = new TableInfo(&quot;character_table&quot;, _columnsCharacterTable, _foreignKeysCharacterTable, _indicesCharacterTable);</span>
+<span class="nc" id="L93">        final TableInfo _existingCharacterTable = TableInfo.read(_db, &quot;character_table&quot;);</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (! _infoCharacterTable.equals(_existingCharacterTable)) {</span>
+<span class="nc" id="L95">          return new RoomOpenHelper.ValidationResult(false, &quot;character_table(com.cg.marvel_app.data.characters.CharacterResult).\n&quot;</span>
+                  + &quot; Expected:\n&quot; + _infoCharacterTable + &quot;\n&quot;
+                  + &quot; Found:\n&quot; + _existingCharacterTable);
+        }
+<span class="nc" id="L99">        return new RoomOpenHelper.ValidationResult(true, null);</span>
+      }
+    }, &quot;af684beec6868102a7106e2b58abcc78&quot;, &quot;e450a31d886ea7387e505b2b147aaeb1&quot;);
+<span class="fc" id="L102">    final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)</span>
+<span class="fc" id="L103">        .name(configuration.name)</span>
+<span class="fc" id="L104">        .callback(_openCallback)</span>
+<span class="fc" id="L105">        .build();</span>
+<span class="fc" id="L106">    final SupportSQLiteOpenHelper _helper = configuration.sqliteOpenHelperFactory.create(_sqliteConfig);</span>
+<span class="fc" id="L107">    return _helper;</span>
+  }
+
+  @Override
+  protected InvalidationTracker createInvalidationTracker() {
+<span class="fc" id="L112">    final HashMap&lt;String, String&gt; _shadowTablesMap = new HashMap&lt;String, String&gt;(0);</span>
+<span class="fc" id="L113">    HashMap&lt;String, Set&lt;String&gt;&gt; _viewTables = new HashMap&lt;String, Set&lt;String&gt;&gt;(0);</span>
+<span class="fc" id="L114">    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, &quot;character_table&quot;);</span>
+  }
+
+  @Override
+  public void clearAllTables() {
+<span class="nc" id="L119">    super.assertNotMainThread();</span>
+<span class="nc" id="L120">    final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();</span>
+    try {
+<span class="nc" id="L122">      super.beginTransaction();</span>
+<span class="nc" id="L123">      _db.execSQL(&quot;DELETE FROM `character_table`&quot;);</span>
+<span class="nc" id="L124">      super.setTransactionSuccessful();</span>
+    } finally {
+<span class="nc" id="L126">      super.endTransaction();</span>
+<span class="nc" id="L127">      _db.query(&quot;PRAGMA wal_checkpoint(FULL)&quot;).close();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">      if (!_db.inTransaction()) {</span>
+<span class="nc" id="L129">        _db.execSQL(&quot;VACUUM&quot;);</span>
+      }
+    }
+<span class="nc" id="L132">  }</span>
+
+  @Override
+  protected Map&lt;Class&lt;?&gt;, List&lt;Class&lt;?&gt;&gt;&gt; getRequiredTypeConverters() {
+<span class="fc" id="L136">    final HashMap&lt;Class&lt;?&gt;, List&lt;Class&lt;?&gt;&gt;&gt; _typeConvertersMap = new HashMap&lt;Class&lt;?&gt;, List&lt;Class&lt;?&gt;&gt;&gt;();</span>
+<span class="fc" id="L137">    _typeConvertersMap.put(CharacterDao.class, CharacterDao_Impl.getRequiredConverters());</span>
+<span class="fc" id="L138">    return _typeConvertersMap;</span>
+  }
+
+  @Override
+  public CharacterDao getCharacterDao() {
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">    if (_characterDao != null) {</span>
+<span class="nc" id="L144">      return _characterDao;</span>
+    } else {
+<span class="fc" id="L146">      synchronized(this) {</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">        if(_characterDao == null) {</span>
+<span class="fc" id="L148">          _characterDao = new CharacterDao_Impl(this);</span>
+        }
+<span class="fc" id="L150">        return _characterDao;</span>
+      }
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
