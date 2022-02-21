@@ -57,16 +57,14 @@ class MarvelDatabaseTest {
     }
 
     @Test
-    fun insertAndDelete(): Unit = runBlocking{
+    fun insertAndDelete(): Unit = runBlocking {
         //given
         characterDao.insert(characterResult)
         characterDao.getFavouriteCharacters()
         characterDao.delete(characterResult)
         //actual
-        val resultsDelete  = characterDao.getFavouriteCharacters()
+        val resultsDelete = characterDao.getFavouriteCharacters()
         //expected
         assertThat(resultsDelete)
     }
-
-
 }
