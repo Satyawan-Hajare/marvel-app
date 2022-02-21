@@ -11,7 +11,7 @@ This app used the MVVM architecutre .
  6. Added Animation in list and listdetail  <br />
  
  ### Screens <br />
-![marvel_app](https://user-images.githubusercontent.com/99657985/154678712-63856f97-7655-47d0-a5a4-61bba824c6cd.jpg)
+![marvel_app_all_screen](https://user-images.githubusercontent.com/99657985/154898164-88d49dd6-6d60-44c6-b7a5-27c2c84ae65d.jpg)
 
 ### Libraries and Tools
 ViewModel <br />
