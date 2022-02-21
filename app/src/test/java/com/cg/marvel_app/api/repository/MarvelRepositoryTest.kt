@@ -86,7 +86,7 @@ class MarvelRepositoryTest {
     fun `character paging source refresh - success`() =
         testDispatcher.runBlockingTest {
             lenient().`when`(marvelApi.getAllCharacters(0, 1)).thenReturn(characterResponse)
-    }
+        }
 
     @Test
     fun `character paging source load - failure - received null`() =
@@ -130,7 +130,7 @@ class MarvelRepositoryTest {
     @Test
     fun addCharacterToFavourite() {
         testDispatcher.runBlockingTest {
-           var addToFavourite= marvelRepository.addCharacterToFavourite(characterResult)
+            var addToFavourite = marvelRepository.addCharacterToFavourite(characterResult)
             assertThat(addToFavourite)
         }
     }
@@ -138,7 +138,8 @@ class MarvelRepositoryTest {
     @Test
     fun removeCharacterFromFavourite() {
         testDispatcher.runBlockingTest {
-            var removeCharacterFromFavourite= marvelRepository.removeCharacterFromFavourite(characterResult)
+            var removeCharacterFromFavourite =
+                marvelRepository.removeCharacterFromFavourite(characterResult)
             assertThat(removeCharacterFromFavourite)
         }
     }
