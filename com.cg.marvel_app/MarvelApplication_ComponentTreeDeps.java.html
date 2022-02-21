@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarvelApplication_ComponentTreeDeps.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MarvelApp$com_cg_marvel_app_in_MarvelApp_app.exec</a> &gt; <a href="index.source.html" class="el_package">com.cg.marvel_app</a> &gt; <span class="el_source">MarvelApplication_ComponentTreeDeps.java</span></div><h1>MarvelApplication_ComponentTreeDeps.java</h1><pre class="source lang-java linenums">package com.cg.marvel_app;
+
+import dagger.hilt.internal.aggregatedroot.codegen._com_cg_marvel_app_MarvelApplication;
+import dagger.hilt.internal.componenttreedeps.ComponentTreeDeps;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ActivityComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ActivityRetainedComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_FragmentComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ServiceComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ViewComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ViewModelComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_components_ViewWithFragmentComponent;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ActivityComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ActivityRetainedComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_FragmentComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ServiceComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewModelComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder;
+import dagger.hilt.processor.internal.definecomponent.codegen._dagger_hilt_components_SingletonComponent;
+import hilt_aggregated_deps._com_cg_marvel_app_MarvelApplication_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_di_AppModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_MainActivity_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_allcharacters_AllCharacterFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_allcharacters_AllCharacterViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_allcharacters_AllCharacterViewModel_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_charactercomics_ComicFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_charactercomics_ComicViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_charactercomics_ComicViewModel_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_characterdetail_CharacterDetailFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_characterseries_SeriesFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_characterseries_SeriesViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_characterseries_SeriesViewModel_HiltModules_KeyModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterFragment_GeneratedInjector;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterViewModel_HiltModules_BindsModule;
+import hilt_aggregated_deps._com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterViewModel_HiltModules_KeyModule;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_ActivityEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_FragmentEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_HiltViewModelFactory_ViewModelFactoriesEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_HiltWrapper_DefaultViewModelFactories_ActivityModule;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_HiltWrapper_HiltViewModelFactory_ActivityCreatorEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_lifecycle_HiltWrapper_HiltViewModelFactory_ViewModelModule;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_ActivityComponentManager_ActivityComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_FragmentComponentManager_FragmentComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedLifecycleEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_LifecycleModule;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_ServiceComponentManager_ServiceComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_ViewComponentManager_ViewComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_managers_ViewComponentManager_ViewWithFragmentComponentBuilderEntryPoint;
+import hilt_aggregated_deps._dagger_hilt_android_internal_modules_ApplicationContextModule;
+import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule;
+
+@ComponentTreeDeps(
+    rootDeps = _com_cg_marvel_app_MarvelApplication.class,
+    defineComponentDeps = {
+        _dagger_hilt_android_components_ActivityComponent.class,
+        _dagger_hilt_android_components_ActivityRetainedComponent.class,
+        _dagger_hilt_android_components_FragmentComponent.class,
+        _dagger_hilt_android_components_ServiceComponent.class,
+        _dagger_hilt_android_components_ViewComponent.class,
+        _dagger_hilt_android_components_ViewModelComponent.class,
+        _dagger_hilt_android_components_ViewWithFragmentComponent.class,
+        _dagger_hilt_android_internal_builders_ActivityComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_ActivityRetainedComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_FragmentComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_ServiceComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_ViewComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_ViewModelComponentBuilder.class,
+        _dagger_hilt_android_internal_builders_ViewWithFragmentComponentBuilder.class,
+        _dagger_hilt_components_SingletonComponent.class
+    },
+    aggregatedDeps = {
+        _dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_ActivityEntryPoint.class,
+        _dagger_hilt_android_internal_lifecycle_DefaultViewModelFactories_FragmentEntryPoint.class,
+        _dagger_hilt_android_internal_lifecycle_HiltViewModelFactory_ViewModelFactoriesEntryPoint.class,
+        _dagger_hilt_android_internal_lifecycle_HiltWrapper_DefaultViewModelFactories_ActivityModule.class,
+        _dagger_hilt_android_internal_lifecycle_HiltWrapper_HiltViewModelFactory_ActivityCreatorEntryPoint.class,
+        _dagger_hilt_android_internal_lifecycle_HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
+        _dagger_hilt_android_internal_managers_ActivityComponentManager_ActivityComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_managers_FragmentComponentManager_FragmentComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_ActivityRetainedLifecycleEntryPoint.class,
+        _dagger_hilt_android_internal_managers_HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
+        _dagger_hilt_android_internal_managers_ServiceComponentManager_ServiceComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_managers_ViewComponentManager_ViewComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_managers_ViewComponentManager_ViewWithFragmentComponentBuilderEntryPoint.class,
+        _dagger_hilt_android_internal_modules_ApplicationContextModule.class,
+        _dagger_hilt_android_internal_modules_HiltWrapper_ActivityModule.class,
+        _com_cg_marvel_app_MarvelApplication_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_allcharacters_AllCharacterFragment_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_allcharacters_AllCharacterViewModel_HiltModules_BindsModule.class,
+        _com_cg_marvel_app_ui_allcharacters_AllCharacterViewModel_HiltModules_KeyModule.class,
+        _com_cg_marvel_app_ui_charactercomics_ComicFragment_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_charactercomics_ComicViewModel_HiltModules_BindsModule.class,
+        _com_cg_marvel_app_ui_charactercomics_ComicViewModel_HiltModules_KeyModule.class,
+        _com_cg_marvel_app_ui_characterdetail_CharacterDetailFragment_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_characterseries_SeriesFragment_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_characterseries_SeriesViewModel_HiltModules_BindsModule.class,
+        _com_cg_marvel_app_ui_characterseries_SeriesViewModel_HiltModules_KeyModule.class,
+        _com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterFragment_GeneratedInjector.class,
+        _com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterViewModel_HiltModules_BindsModule.class,
+        _com_cg_marvel_app_ui_favouritecharacters_FavouriteCharacterViewModel_HiltModules_KeyModule.class,
+        _com_cg_marvel_app_ui_MainActivity_GeneratedInjector.class,
+        _com_cg_marvel_app_di_AppModule.class
+    }
+)
+<span class="nc" id="L107">class MarvelApplication_ComponentTreeDeps {</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Hilt_SeriesFragment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MarvelApp$com_cg_marvel_app_in_MarvelApp_app.exec</a> &gt; <a href="index.source.html" class="el_package">com.cg.marvel_app.ui.characterseries</a> &gt; <span class="el_source">Hilt_SeriesFragment.java</span></div><h1>Hilt_SeriesFragment.java</h1><pre class="source lang-java linenums">package com.cg.marvel_app.ui.characterseries;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories;
+import dagger.hilt.android.internal.managers.FragmentComponentManager;
+import dagger.hilt.internal.GeneratedComponentManagerHolder;
+import dagger.hilt.internal.Preconditions;
+import dagger.hilt.internal.UnsafeCasts;
+import java.lang.Object;
+import java.lang.Override;
+import java.lang.SuppressWarnings;
+
+/**
+ * A generated base class to be extended by the @dagger.hilt.android.AndroidEntryPoint annotated class. If using the Gradle plugin, this is swapped as the base class via bytecode transformation.
+ */
+@SuppressWarnings(&quot;deprecation&quot;)
+public abstract class Hilt_SeriesFragment extends Fragment implements GeneratedComponentManagerHolder {
+  private ContextWrapper componentContext;
+
+  private volatile FragmentComponentManager componentManager;
+
+<span class="nc" id="L30">  private final Object componentManagerLock = new Object();</span>
+
+<span class="nc" id="L32">  private boolean injected = false;</span>
+
+  Hilt_SeriesFragment() {
+<span class="nc" id="L35">    super();</span>
+<span class="nc" id="L36">  }</span>
+
+  Hilt_SeriesFragment(int contentLayoutId) {
+<span class="nc" id="L39">    super(contentLayoutId);</span>
+<span class="nc" id="L40">  }</span>
+
+  @Override
+  @CallSuper
+  public void onAttach(Context context) {
+<span class="nc" id="L45">    super.onAttach(context);</span>
+<span class="nc" id="L46">    initializeComponentContext();</span>
+<span class="nc" id="L47">    inject();</span>
+<span class="nc" id="L48">  }</span>
+
+  @Override
+  @CallSuper
+  @MainThread
+  public void onAttach(Activity activity) {
+<span class="nc" id="L54">    super.onAttach(activity);</span>
+<span class="nc bnc" id="L55" title="All 4 branches missed.">    Preconditions.checkState(componentContext == null || FragmentComponentManager.findActivity(componentContext) == activity, &quot;onAttach called multiple times with different Context! Hilt Fragments should not be retained.&quot;);</span>
+<span class="nc" id="L56">    initializeComponentContext();</span>
+<span class="nc" id="L57">    inject();</span>
+<span class="nc" id="L58">  }</span>
+
+  private void initializeComponentContext() {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">    if (componentContext == null) {</span>
+      // Note: The LayoutInflater provided by this componentContext may be different from super Fragment's because we getting it from base context instead of cloning from the super Fragment's LayoutInflater.
+<span class="nc" id="L63">      componentContext = FragmentComponentManager.createContextWrapper(super.getContext(), this);</span>
+    }
+<span class="nc" id="L65">  }</span>
+
+  @Override
+  public Context getContext() {
+<span class="nc bnc" id="L69" title="All 4 branches missed.">    if (super.getContext() == null &amp;&amp; componentContext == null) {</span>
+<span class="nc" id="L70">      return null;</span>
+    }
+<span class="nc" id="L72">    initializeComponentContext();</span>
+<span class="nc" id="L73">    return componentContext;</span>
+  }
+
+  @Override
+  public LayoutInflater onGetLayoutInflater(Bundle savedInstanceState) {
+<span class="nc" id="L78">    LayoutInflater inflater = super.onGetLayoutInflater(savedInstanceState);</span>
+<span class="nc" id="L79">    return LayoutInflater.from(FragmentComponentManager.createContextWrapper(inflater, this));</span>
+  }
+
+  @Override
+  public final Object generatedComponent() {
+<span class="nc" id="L84">    return this.componentManager().generatedComponent();</span>
+  }
+
+  protected FragmentComponentManager createComponentManager() {
+<span class="nc" id="L88">    return new FragmentComponentManager(this);</span>
+  }
+
+  @Override
+  public final FragmentComponentManager componentManager() {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">    if (componentManager == null) {</span>
+<span class="nc" id="L94">      synchronized (componentManagerLock) {</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (componentManager == null) {</span>
+<span class="nc" id="L96">          componentManager = createComponentManager();</span>
+        }
+<span class="nc" id="L98">      }</span>
+    }
+<span class="nc" id="L100">    return componentManager;</span>
+  }
+
+  protected void inject() {
+<span class="nc bnc" id="L104" title="All 2 branches missed.">    if (!injected) {</span>
+<span class="nc" id="L105">      injected = true;</span>
+<span class="nc" id="L106">      ((SeriesFragment_GeneratedInjector) this.generatedComponent()).injectSeriesFragment(UnsafeCasts.&lt;SeriesFragment&gt;unsafeCast(this));</span>
+    }
+<span class="nc" id="L108">  }</span>
+
+  @Override
+  public ViewModelProvider.Factory getDefaultViewModelProviderFactory() {
+<span class="nc" id="L112">    return DefaultViewModelFactories.getFragmentFactory(this, super.getDefaultViewModelProviderFactory());</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
