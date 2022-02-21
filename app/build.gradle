@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.cg.marvel_app.HiltTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -39,9 +39,6 @@ android {
     }
     kotlinOptions {
         useOldBackend = true
-    }
-    hilt {
-        enableTransformForLocalTests = true
     }
     testOptions {
         unitTests.returnDefaultValues = true
@@ -109,10 +106,7 @@ dependencies {
     // Hilt - testing
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    androidTestAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.38.1'
     //google.truth:truth
     testImplementation "com.google.truth:truth:$googleTruthVersion"
     androidTestImplementation "com.google.truth:truth:$googleTruthVersion"
-    //MockWebserver
-    testImplementation('com.squareup.okhttp3:mockwebserver:4.9.1')
 }
