@@ -27,6 +27,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.lenient
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
+import javax.inject.Inject
 
 
 @ExperimentalCoroutinesApi
@@ -40,7 +41,7 @@ class MarvelRepositoryTest {
 
     private lateinit var viewModel: AllCharacterViewModel
 
-    @Mock
+    @Inject
     lateinit var marvelRepository: MarvelRepository
 
     @Mock
@@ -83,28 +84,10 @@ class MarvelRepositoryTest {
     }
 
     @Test
-    fun `character paging source refresh - success`() =
+    fun `character getAllCharacter`() =
         testDispatcher.runBlockingTest {
             lenient().`when`(marvelApi.getAllCharacters(0, 1)).thenReturn(characterResponse)
         }
-
-    @Test
-    fun `character paging source load - failure - received null`() =
-        testDispatcher.runBlockingTest {
-            lenient().`when`(marvelApi.getAllCharacters(0, 0)).thenReturn(null)
-            val expectedResult =
-                PagingSource.LoadResult.Error<Int, CharacterResult>((NullPointerException()))
-            assertEquals(
-                expectedResult.toString(), pagingSource.load(
-                    PagingSource.LoadParams.Refresh(
-                        key = 0,
-                        loadSize = 1,
-                        placeholdersEnabled = false
-                    )
-                ).toString()
-            )
-        }
-
 
     @Test
     fun searchCharacter() {

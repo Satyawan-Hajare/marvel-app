@@ -19,31 +19,4 @@ class AppModuleTest {
         Room.inMemoryDatabaseBuilder(context, MarvelDatabase::class.java)
             .allowMainThreadQueries()
             .build()
- //   @Before
-//    fun setUp() {
-//    }
-//
-//    @After
-//    fun tearDown() {
-//    }
-//
-//    @Test
-//    fun provideHttpClient() {
-//    }
-//
-//    @Test
-//    fun provideRetrofit() {
-//    }
-//
-//    @Test
-//    fun provideMarvelApi() {
-//    }
-//
-//    @Test
-//    fun provideMarvelDatabase() {
-//    }
-//
-//    @Test
-//    fun provideCharacterDao() {
-//    }
 }

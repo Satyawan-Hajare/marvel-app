@@ -3,6 +3,8 @@ package com.cg.marvel_app.db
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import com.cg.marvel_app.data.characters.CharacterResult
+import com.cg.marvel_app.launchFragmentInHiltContainer
+import com.cg.marvel_app.ui.allcharacters.AllCharacterFragment
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
