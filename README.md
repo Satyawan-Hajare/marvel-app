@@ -16,6 +16,7 @@ This app used the MVVM architecutre .
 
 ### Libraries and Tools
 ViewModel <br />
+Dependancy Injection(Dagger Hilt) <br />
 LiveData <br />
 Navigation <br />
 Room <br />
