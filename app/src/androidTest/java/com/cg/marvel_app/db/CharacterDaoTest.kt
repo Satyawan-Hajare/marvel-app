@@ -3,15 +3,12 @@ package com.cg.marvel_app.db
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import com.cg.marvel_app.data.characters.CharacterResult
-import com.cg.marvel_app.launchFragmentInHiltContainer
-import com.cg.marvel_app.ui.allcharacters.AllCharacterFragment
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.first
-
-import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -32,7 +29,7 @@ class CharacterDaoTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private val testDispatcher = TestCoroutineDispatcher()
+    private val testDispatcher = StandardTestDispatcher()
 
     @Inject
     @Named("marvel_database")
@@ -72,7 +69,6 @@ class CharacterDaoTest {
     fun teardown() {
         database.close()
         Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 
     @InternalCoroutinesApi

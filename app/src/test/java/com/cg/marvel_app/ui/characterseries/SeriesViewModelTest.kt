@@ -10,7 +10,6 @@ import com.google.common.truth.Truth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import org.junit.After
 import org.junit.Before
@@ -18,7 +17,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations.*
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
@@ -44,12 +42,8 @@ class SeriesViewModelTest {
     @Mock
     lateinit var characterDao: CharacterDao
 
-
-    private val testDispatcher = TestCoroutineDispatcher()
-
     @Before
     fun setUp() {
-        initMocks(this)
         marvelRepository = MarvelRepository(marvelApi, characterDao)
         viewModel = SeriesViewModel(marvelRepository)
     }
@@ -67,6 +61,5 @@ class SeriesViewModelTest {
     @After
     fun tearDown() {
         Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 }

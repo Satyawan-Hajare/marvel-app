@@ -13,16 +13,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations.initMocks
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
@@ -34,7 +32,7 @@ class AllCharacterViewModelTest {
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
 
-    lateinit var viewModel: AllCharacterViewModel
+    private lateinit var viewModel: AllCharacterViewModel
 
     @Mock
     lateinit var marvelRepository: MarvelRepository
@@ -51,19 +49,15 @@ class AllCharacterViewModelTest {
     @Mock
     lateinit var characterResult: CharacterResult
 
-    private val testDispatcher = TestCoroutineDispatcher()
-
-
     @Before
     fun setUp() {
-        initMocks(this)
         marvelRepository = MarvelRepository(marvelApi, characterDao)
         viewModel = AllCharacterViewModel(marvelRepository)
     }
 
     @Test
     fun getSearchQuery() {
-        testDispatcher.runBlockingTest {
+        runTest {
             val searchQuery = MutableStateFlow("")
             assertThat(searchQuery)
         }
@@ -72,7 +66,7 @@ class AllCharacterViewModelTest {
 
     @Test
     fun getSearchResult() {
-        testDispatcher.runBlockingTest {
+        runTest {
             //given
             val mutableStateFlow = MutableStateFlow("")
             //actual
@@ -87,7 +81,7 @@ class AllCharacterViewModelTest {
 
     @Test
     fun addToFavourite() {
-        testDispatcher.runBlockingTest {
+        runTest {
             //actual
             val addToFavourite = viewModel.addToFavourite(characterResult)
             //expected
@@ -97,7 +91,7 @@ class AllCharacterViewModelTest {
 
     @Test
     fun removeFromFavourite() {
-        testDispatcher.runBlockingTest {
+        runTest {
             //actual
             val removeFromFavourite = viewModel.removeFromFavourite(characterResult)
             //excepted
@@ -108,6 +102,5 @@ class AllCharacterViewModelTest {
     @After
     fun tearDown() {
         Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 }

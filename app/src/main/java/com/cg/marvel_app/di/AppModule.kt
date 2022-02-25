@@ -31,7 +31,7 @@ object AppModule {
         httpClient.addInterceptor(logging)
         httpClient.addInterceptor { chain ->
             val original = chain.request()
-            val originalHttpUrl = original.url()
+            val originalHttpUrl = original.url
 
             val url = originalHttpUrl.newBuilder()
                 .addQueryParameter(Constants.AppModuleKey.API_KEY, Constants.PUBLIC_KEY)

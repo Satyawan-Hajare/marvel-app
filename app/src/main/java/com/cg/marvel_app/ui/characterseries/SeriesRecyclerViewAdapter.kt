@@ -24,7 +24,7 @@ class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
 
     inner class SeriesViewHolder(private val binding: ItemSeriesBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(series: SeriesResult, position: Int) {
+        fun bind(series: SeriesResult) {
             binding.apply {
                 Glide.with(itemView)
                     .load(series.thumbnail.path + "." + series.thumbnail.extension)
@@ -71,7 +71,7 @@ class SeriesRecyclerViewAdapter(private val listener: SeriesClickListener) :
     override fun onBindViewHolder(holder: SeriesViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
-            holder.bind(currentItem, position)
+            holder.bind(currentItem)
         }
     }
 }

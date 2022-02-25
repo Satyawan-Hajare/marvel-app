@@ -9,7 +9,6 @@ import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations.initMocks
 import org.mockito.junit.MockitoJUnitRunner
 
 
@@ -35,7 +34,6 @@ class MarvelDatabaseTest {
 
     @Test
     fun setUp() {
-        initMocks(this)
         // initialize the db and dao variable
         marvelDatabase = Room.inMemoryDatabaseBuilder(context, MarvelDatabase::class.java).build()
         characterDao = marvelDatabase.getCharacterDao()

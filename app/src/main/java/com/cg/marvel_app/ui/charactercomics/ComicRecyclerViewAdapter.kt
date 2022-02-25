@@ -22,7 +22,7 @@ class ComicRecyclerViewAdapter(private val listener: ComicClickListener) :
 
     inner class ComicViewHolder(private val binding: ItemComicBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(comic: ComicResult, position: Int) {
+        fun bind(comic: ComicResult) {
             binding.apply {
                 Glide.with(itemView)
                     .load(comic.thumbnail.path + "." + comic.thumbnail.extension)
@@ -69,7 +69,7 @@ class ComicRecyclerViewAdapter(private val listener: ComicClickListener) :
     override fun onBindViewHolder(holder: ComicViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
-            holder.bind(currentItem, position)
+            holder.bind(currentItem)
         }
     }
 }

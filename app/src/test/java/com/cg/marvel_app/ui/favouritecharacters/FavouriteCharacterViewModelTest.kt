@@ -9,18 +9,16 @@ import com.cg.marvel_app.db.CharacterDao
 import com.google.common.truth.Truth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
-import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations
+import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
@@ -33,7 +31,7 @@ class FavouriteCharacterViewModelTest {
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
 
-    lateinit var viewModel: FavouriteCharacterViewModel
+    private lateinit var viewModel: FavouriteCharacterViewModel
 
     @Mock
     lateinit var marvelRepository: MarvelRepository
@@ -47,19 +45,19 @@ class FavouriteCharacterViewModelTest {
     @Mock
     lateinit var characterResult: CharacterResult
 
-    private val testDispatcher = TestCoroutineDispatcher()
+    @Mock
+    private lateinit var charFlow: Flow<List<CharacterResult>>
 
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
         marvelRepository = MarvelRepository(marvelApi, characterDao)
         viewModel = FavouriteCharacterViewModel(marvelRepository)
     }
 
     @Test
     fun addToFavourite() {
-        testDispatcher.runBlockingTest {
+        runTest {
             //actual
             val addToFavourite = viewModel.addToFavourite(characterResult)
             //expected
@@ -69,7 +67,7 @@ class FavouriteCharacterViewModelTest {
 
     @Test
     fun removeFromFavourite() {
-        testDispatcher.runBlockingTest {
+        runTest {
             //actual
             val removeFromFavourite = viewModel.removeFromFavourite(characterResult)
             //expected
@@ -77,19 +75,16 @@ class FavouriteCharacterViewModelTest {
         }
     }
 
-//    @Test
-//    fun getFavouriteCharacters() {
-//        testDispatcher.runBlockingTest {
-//            //actual
-//            val getFavouriteCharacters = marvelRepository.getFavouriteCharacters().asLiveData()
-//            //expected
-//            Truth.assertThat(getFavouriteCharacters)
-//        }
-//    }
+    @Test
+    fun getFavouriteCharacters() {
+        runTest {
+            Mockito.lenient().`when`(marvelRepository.getFavouriteCharacters())
+                .thenReturn(charFlow)
+        }
+    }
 
     @After
     fun tearDown() {
         Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 }

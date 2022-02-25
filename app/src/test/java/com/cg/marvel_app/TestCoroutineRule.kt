@@ -9,7 +9,7 @@ import org.junit.runners.model.Statement
 
 @ExperimentalCoroutinesApi
 class TestCoroutineRule : TestRule {
-    private val testCoroutineDispatcher = TestCoroutineDispatcher()
+    private val testCoroutineDispatcher = StandardTestDispatcher()
 
     private val testCoroutineScope = TestCoroutineScope(testCoroutineDispatcher)
     override fun apply(base: Statement?, description: Description?) = object : Statement() {
@@ -24,6 +24,4 @@ class TestCoroutineRule : TestRule {
         }
     }
 
-    fun runBlockingTest(block: suspend TestCoroutineScope.() -> Unit) =
-        testCoroutineScope.runBlockingTest { block() }
 }

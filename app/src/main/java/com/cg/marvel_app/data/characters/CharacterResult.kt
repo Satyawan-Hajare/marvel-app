@@ -1,9 +1,9 @@
 package com.cg.marvel_app.data.characters
 
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import androidx.room.*
 import com.cg.marvel_app.utils.Constants
-import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = Constants.DbConstant.TABLE_NAME)
