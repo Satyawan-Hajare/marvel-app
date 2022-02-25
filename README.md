@@ -10,6 +10,7 @@ This app used the MVVM architecutre .
  5. Save the Character & Favorite Data in Room DB. <br />
  6. Added Animation in list and listdetail  <br />
  7. Added Unit Test cases.  <br />
+ 8. Added Build Flever Implementation.  <br />
  
  ### Screens <br />
 ![marvel_app_all_screen](https://user-images.githubusercontent.com/99657985/154898164-88d49dd6-6d60-44c6-b7a5-27c2c84ae65d.jpg)
@@ -17,7 +18,7 @@ This app used the MVVM architecutre .
 ### Libraries and Tools
 ViewModel <br />
 Dependancy Injection(Dagger Hilt) <br />
-LiveData <br />
+LiveData & StateFlow <br />
 Navigation <br />
 Room <br />
 Coroutines <br />
