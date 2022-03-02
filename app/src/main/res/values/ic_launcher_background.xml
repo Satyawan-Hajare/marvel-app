@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="ic_launcher_background">@color/red</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="ic_launcher_background" tools:keep="@color/ic_launcher_background">@color/red</color>
 </resources>

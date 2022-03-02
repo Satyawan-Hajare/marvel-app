@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.cg.marvel_app"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
@@ -138,5 +138,5 @@ dependencies {
     testImplementation "com.google.truth:truth:$googleTruthVersion"
     androidTestImplementation "com.google.truth:truth:$googleTruthVersion"
     //fragment test
-    debugImplementation "androidx.fragment:fragment-testing:1.5.0-alpha02"
+    debugImplementation "androidx.fragment:fragment-testing:1.5.0-alpha03"
 }
